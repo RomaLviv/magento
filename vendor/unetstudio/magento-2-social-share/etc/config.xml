@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <social_share>
+            <global_mode>
+                <enable>1</enable>
+            </global_mode>
+            <facebook>
+                <facebook_enable>1</facebook_enable>
+            </facebook>
+            <twitter>
+                <twitter_enable>1</twitter_enable>
+            </twitter>
+            <network>
+                <google_plus_enable>1</google_plus_enable>
+                <pinterest_enable>1</pinterest_enable>
+            </network>
+        </social_share>
+    </default>
+</config>

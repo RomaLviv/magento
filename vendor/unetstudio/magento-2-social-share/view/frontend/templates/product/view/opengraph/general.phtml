@@ -1,0 +1,47 @@
+<?php
+/** @var $block \Magento\Catalog\Block\Product\View */
+/** @var $_themeHelper \Unet\SocialShare\Helper\Data **/
+?>
+<?php
+    $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
+    $_product = $block->getProduct();
+    $baseUrl = $_themeHelper->getBaseUrl();
+    $url = $_product->getProductUrl();
+    $facebookAppId = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::FACEBOOK_APP_ID);
+    $twitterSite = $_themeHelper->getStoreConfig(\Unet\SocialShare\Block\AbstractShare::TWITTER_NAME);
+    $isFrontUrlSecure = $_themeHelper->isFrontUrlSecure();
+?>
+
+<!-- Open Graph data -->
+<meta property="og:type" content="og:product" />
+<meta property="og:title" content="<?php echo $block->escapeHtml($_product->getName()); ?>" />
+<meta property="og:image" content="<?php echo $block->escapeUrl($block->getImage($_product, 'product_base_image')->getImageUrl()); ?>" />
+<?php if ($isFrontUrlSecure): ?>
+    <meta property="og:image:secure_url" content="<?php echo $block->escapeUrl($block->getImage($_product, 'product_base_image')->getImageUrl()); ?>" />
+<?php endif; ?>
+<meta property="og:image:width" content="<?php /* @escapeNotVerified */ echo $_themeHelper->getImageWidth(); ?>" />
+<meta property="og:image:height" content="<?php /* @escapeNotVerified */ echo $_themeHelper->getImageHeight(); ?>" />
+<meta property="og:description" content="<?php echo $block->escapeHtml($_product->getShortDescription()); ?>" />
+<meta property="og:url" content="<?php echo $block->escapeUrl($url); ?>" />
+
+<?php if (!empty($facebookAppId)): ?>
+    <meta property="fb:app_id" content="<?php /* @escapeNotVerified */ echo $block->escapeHtml($facebookAppId); ?>" />
+<?php endif;?>
+
+<?php if ($priceAmount = $_product->getFinalPrice()):?>
+    <meta property="product:price:amount" content="<?php /* @escapeNotVerified */ echo $priceAmount; ?>"/>
+    <?php echo $block->getChildHtml('meta.currency'); ?>
+<?php endif;?>
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="<?php /* @escapeNotVerified */ echo 'summary'; ?>">
+
+<?php if (!empty($twitterSite)): ?>
+    <meta name="twitter:site" content="<?php /* @escapeNotVerified */ echo '@'.$block->escapeHtml($twitterSite); ?>" />
+<?php endif; ?>
+
+<meta name="twitter:title" content="<?php echo $block->escapeHtml($_product->getName()); ?>">
+<meta name="twitter:description" content="<?php echo $block->escapeHtml($_product->getShortDescription()); ?>">
+<meta name="twitter:image" content="<?php echo $block->escapeUrl($block->getImage($_product, 'product_base_image')->getImageUrl()); ?>">
+
+<!-- Open Graph data -->

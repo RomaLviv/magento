@@ -1,0 +1,25 @@
+<?php
+/** @var $block \Unet\SocialShare\Block\ShareTo **/
+/** @var $_themeHelper \Unet\SocialShare\Helper\Data **/
+?>
+<div id="shareto" class="shareto" data-role="share-to-links">
+	<div class="social">
+        <ul class="share-list"></ul>
+    </div>
+</div>
+
+<?php
+    $_themeHelper = $this->helper('\Unet\SocialShare\Helper\Data');
+?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=share-to-links]": {
+            "socialShare" : {
+                "title": "<?php /* @escapeNotVerified */ echo $_themeHelper->getTitle(); ?>",
+                "image": "<?php /* @escapeNotVerified */ echo $block->getImage(); ?>",
+                "url": "<?php /* @escapeNotVerified */ echo $_themeHelper->getCurrentUrl(); ?>",
+                "config": <?php /* @escapeNotVerified */ echo json_encode($block->getShareConfig()); ?>
+            }
+        }
+    }
+</script>

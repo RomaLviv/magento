@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="unet_studio" translate="label" sortOrder="100">
+            <label>UNET Studio</label>
+        </tab>
+        <section id="social_share" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Social Share</label>
+            <tab>unet_studio</tab>
+            <resource>Unet_SocialShare::unet_studio</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="global_mode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Global Mode</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                    <comment>Apply for all pages, set No for using only widget mode</comment>
+                </field>
+                <field id="image_width" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Width</label>
+                    <depends>
+                        <field id="*/general/global_mode">1</field>
+                    </depends>
+                    <comment>The width of image display on share popup</comment>
+                </field>
+                <field id="image_height" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Height</label>
+                    <depends>
+                        <field id="*/general/global_mode">1</field>
+                    </depends>
+                    <comment>The height of image display on share popup</comment>
+                </field>
+            </group>
+            <group id="facebook" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Facebook</label>
+                <field id="facebook_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="facebook_app_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Application ID</label>
+                    <depends>
+                        <field id="*/facebook/facebook_enable">1</field>
+                    </depends>
+                    <comment>The Facebook application ID (no required)</comment>
+                </field>
+            </group>
+            <group id="twitter" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Twitter</label>
+                <field id="twitter_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="twitter_site_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Site Name</label>
+                    <depends>
+                        <field id="*/twitter/twitter_enable">1</field>
+                    </depends>
+                    <comment>The site name for Twitter share (no required)</comment>
+                </field>
+            </group>
+            <group id="network" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social Network</label>
+                <field id="google_plus_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Plus Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+                <field id="pinterest_enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pinterest Enable</label>
+                    <source_model>Unet\SocialShare\Model\Config\Source\Enable</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

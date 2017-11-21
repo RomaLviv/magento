@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "grunt": "^1.0.1",
+    "grunt-eslint": "^20.0.0"
+  },
+  "peerDependencies": {
+    "grunt-cli": "^1.2.0"
+  },
+  "scripts": {
+    "fix": "./node_modules/.bin/eslint view/frontend/web/js/social-share.js --fix",
+    "test": "./node_modules/.bin/grunt ci"
+  }
+}

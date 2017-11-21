@@ -1,0 +1,11 @@
+/app/etc/config.php export-ignore
+/app/etc/env.php export-ignore
+/pub/media/catalog export-ignore
+/pub/media/downloadable export-ignore
+/pub/media/import export-ignore
+/pub/media/tmp export-ignore
+/build export-ignore
+/themesetup export-ignore
+/_demo export-ignore
+/app/clone.php export-ignore
+/clone_config.php export-ignore

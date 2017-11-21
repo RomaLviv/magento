@@ -1,0 +1,25 @@
+{
+  "name": "qpard/magento2-russian-language-pack",
+  "description": "Russian language package for Magento 2",
+  "homepage": "https://qpard.com",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0"
+  },
+  "type": "magento2-language",
+  "version": "1.0.8",
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "QPARD team",
+      "email": "qmage@qpard.com",
+      "homepage": "https://qpard.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ]
+  }
+}
